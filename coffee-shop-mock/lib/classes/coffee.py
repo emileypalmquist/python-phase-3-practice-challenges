@@ -13,6 +13,7 @@ class Coffee:
             self._name = name
         else:
             print("cannot change name")
+            # raise Exception("cannot change name")
 
     name = property(get_name, set_name)
 

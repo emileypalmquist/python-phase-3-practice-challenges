@@ -27,7 +27,7 @@ class TestCoffee:
 
     # def test_raise_exception_for_changing_name(self):
     #     '''raise exception for trying to change name after initialization'''
-    #     coffee = coffee("Peppermint Mocha")
+    #     coffee = Coffee("Peppermint Mocha")
     #     with pytest.raises(Exception):
     #         coffee.name = 'Banana'
 
