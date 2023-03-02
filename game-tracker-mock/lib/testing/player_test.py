@@ -132,5 +132,13 @@ class TestPlayer:
         '''Player's result was created.'''
         game = Game("Skribbl.io")
         player = Player('Saaammmm')
+        result_1 = Result(player, game, 2000)
+        result_2 = Result(player, game, 5000)
+
+        assert (len(player.results()) == 2)
         player.add_result(game, 2000)
-        assert
+        assert (len(player.results()) == 3)
+        assert (player.results()[2].score == 2000)
+        assert (player.results()[2].game == game)
+
+    # need test for highest_scored classmethod

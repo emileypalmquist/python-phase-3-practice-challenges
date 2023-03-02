@@ -131,13 +131,6 @@ build out any helper methods if needed.
   - To average scores, add all result scores together for the player and divide by the total number
     of results for the player.
 
-#### Player
-
-- `Player classmethod highest_scored(game)`
-  - Returns the `Player` instance with the highest average game score.
-  - hint: will need a way to remember all `Player` objects
-  - hint: do you have a method to get the average score on a game for a particular player?
-
 ### Bonus: For any invalid inputs raise an `Exception`.
 
 Uncomment the following lines in the test files:
@@ -153,3 +146,10 @@ Uncomment the following lines in the test files:
 #### result_tests.py
 
 - lines 0 - 0
+
+#### Bonus: Aggregate and Association Method
+
+- `Player classmethod highest_scored(game)`
+  - Returns the `Player` instance with the highest average game score.
+  - hint: will need a way to remember all `Player` objects
+  - hint: do you have a method to get the average score on a game for a particular player?

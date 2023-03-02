@@ -65,6 +65,7 @@ build out any helper methods if needed.
   - Return name
   - Names must be of type `str`
   - Names must be between 1 and 15 characters, inclusive
+  - if you are using exceptions comment out the test on lines 32 - 35 in the customer_test.py and uncomment lines 37 - 45
 
 #### Coffee
 
