@@ -36,15 +36,12 @@ class TestPlayer:
 
     # def test_raise_exception_for_invalid_username(self):
     #     '''raise exception for an invalid username'''
-    #     player = Player("this_username_is_too_long")
     #     with pytest.raises(Exception):
-    #         player.title = 'this_username_is_too_long'
-    #     player_2 = Player("y")
+    #         player = Player("this_username_is_too_long")
     #     with pytest.raises(Exception):
-    #         player_2.title = 'y'
-    #     player_3 = Player(1)
+    #         player_2 = Player("y")
     #     with pytest.raises(Exception):
-    #         player_3.title = 1
+    #         player_3 = Player(1)
 
     def test_has_many_results(self):
         '''Player has many results.'''

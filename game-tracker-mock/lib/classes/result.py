@@ -17,6 +17,8 @@ class Result:
     def set_score(self, score):
         if isinstance(score, int) and 1 <= score <= 5000:
             self._score = score
+        # else:
+        #     raise Exception("Score out of range")
 
     score = property(get_score, set_score)
 

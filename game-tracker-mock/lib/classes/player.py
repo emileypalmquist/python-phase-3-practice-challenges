@@ -11,6 +11,9 @@ class Player:
     def set_username(self, username):
         if isinstance(username, str) and 2 <= len(username) <= 16:
             self._username = username
+        # else:
+        #     raise Exception(
+        #         "username not string or not within 2-16 characters")
 
     username = property(get_username, set_username)
 

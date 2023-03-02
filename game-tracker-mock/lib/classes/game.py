@@ -11,6 +11,8 @@ class Game:
     def set_title(self, title):
         if (not hasattr(self, "_title")) and isinstance(title, str) and len(title) > 0:
             self._title = title
+        # else:
+        #     raise Exception("cannot change title")
 
     title = property(get_title, set_title)
 
