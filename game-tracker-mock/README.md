@@ -76,7 +76,7 @@ build out any helper methods if needed.
   - Returns the Player's username
   - Usernames must be strings between 2 and 16 characters,
     inclusive
-  - if you are using exceptions comment out the test on lines 25 - 29 in the coffee_test.py and uncomment lines 37 - 44
+  - if you are using exceptions comment out the test on lines 25 - 29 in the player_test.py and uncomment lines 37 - 44
 
 #### Result
 
