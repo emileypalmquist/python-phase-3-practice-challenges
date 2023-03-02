@@ -35,7 +35,7 @@ class TestCustomer:
         assert (len(customer.name) == 5)
 
     # def test_raise_exception_for_non_string_name(self):
-    # '''raise exception when trying to change name to non str'''
+    #     '''raise exception when trying to change name to non str'''
     #     customer = Customer('Steve')
     #     with pytest.raises(Exception):
     #         customer.name = True

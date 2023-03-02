@@ -11,6 +11,8 @@ class Customer:
     def set_name(self, name):
         if isinstance(name, str) and (1 <= len(name) <= 15):
             self._name = name
+        # else:
+        #     raise Exception("cannot change name")
 
     name = property(get_name, set_name)
 

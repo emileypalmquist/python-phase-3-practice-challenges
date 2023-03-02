@@ -19,6 +19,8 @@ class Order:
         from classes.customer import Customer
         if isinstance(customer, Customer):
             self._customer = customer
+        # else:
+        #     raise Exception("cannot change name")
 
     customer = property(get_customer, set_customer)
 
@@ -29,6 +31,8 @@ class Order:
         from classes.coffee import Coffee
         if isinstance(coffee, Coffee):
             self._coffee = coffee
+        # else:
+        #     raise Exception("cannot change name")
 
     coffee = property(get_coffee, set_coffee)
 
@@ -38,5 +42,7 @@ class Order:
     def set_price(self, price):
         if isinstance(price, (int, float,)) and (1 <= price <= 10):
             self._price = price
+        # else:
+        #     raise Exception("cannot change name")
 
     price = property(get_price, set_price)
