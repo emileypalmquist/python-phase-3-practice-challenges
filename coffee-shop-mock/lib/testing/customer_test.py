@@ -93,15 +93,6 @@ class TestCustomer:
         assert (len(set(customer.coffees())) == len(customer.coffees()))
         assert (len(customer.coffees()) == 2)
 
-    def test_get_number_of_orders(self):
-        '''test num_orders()'''
-        coffee = Coffee("Mocha")
-        customer = Customer('Steve')
-        order_1 = Order(customer, coffee, 2)
-        order_2 = Order(customer, coffee, 5)
-
-        assert (customer.num_orders() == 2)
-
     def test_create_order(self):
         '''test create_order()'''
         coffee = Coffee("Mocha")
@@ -109,7 +100,7 @@ class TestCustomer:
         order_1 = Order(customer, coffee, 2)
         order_2 = Order(customer, coffee, 5)
 
-        assert (customer.num_orders() == 2)
+        assert (len(customer.orders()) == 2)
         customer.create_order(coffee, 1)
         assert (len(customer.orders()) == 3)
         assert (customer.orders()[2].price == 1)

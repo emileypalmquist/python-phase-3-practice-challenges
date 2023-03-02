@@ -116,14 +116,14 @@ build out any helper methods if needed.
 
 #### Customer
 
-- `Customer num_orders()`
-  - Returns the total number of orders that a customer has ordered
 - `Customer create_order(coffee, price)`
   - given a **coffee object** and a price(as an integer), creates a
     new order and associates it with that customer and coffee.
 
 #### Coffee
 
+- `Coffee num_orders()`
+  - Returns the total number of times that coffee has been ordered
 - `Coffee average_price()`
   - Returns the average price for a coffee based on its orders
   - Reminder: you can calculate the average by adding up all the orders prices and

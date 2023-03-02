@@ -9,17 +9,19 @@ class TestCoffee:
 
     def test_has_name(self):
         '''coffee is initialized with a name'''
-        coffee = coffee("Mocha")
+        coffee = Coffee("Mocha")
         assert (coffee.name == "Mocha")
 
     def test_name_is_string(self):
         '''coffee is initialized with a name of type str'''
-        coffee = coffee("Mocha")
+        coffee = Coffee("Mocha")
         assert (isinstance(coffee.name, str))
+        coffee_2 = Coffee(2)
+        assert (not hasattr(coffee_2, "_name"))
 
     def test_name_setter(self):
         '''Cannot change the name of the coffee'''
-        coffee = coffee("Mocha")
+        coffee = Coffee("Mocha")
         coffee.name = "Peppermint Mocha"
         assert (coffee.name == "Mocha")
 
@@ -32,7 +34,7 @@ class TestCoffee:
     def test_has_many_orders(self):
         '''coffee has many orders.'''
         coffee = Coffee("Hazelnut Latte")
-        coffee_2 = coffee("Mocha")
+        coffee_2 = Coffee("Mocha")
         customer = Customer('Steve')
         order_1 = Order(customer, coffee, 2)
         order_2 = Order(customer, coffee, 5)
@@ -88,6 +90,15 @@ class TestCoffee:
 
         assert (isinstance(coffee.customers()[0], Customer))
         assert (isinstance(coffee.customers()[1], Customer))
+
+    def test_get_number_of_orders(self):
+        '''test num_orders()'''
+        coffee = Coffee("Mocha")
+        customer = Customer('Steve')
+        order_1 = Order(customer, coffee, 2)
+        order_2 = Order(customer, coffee, 5)
+
+        assert (coffee.num_orders() == 2)
 
     def test_average_price(self):
         '''test average_price()'''
