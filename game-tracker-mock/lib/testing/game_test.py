@@ -20,10 +20,10 @@ class TestGame:
     def test_title_len(self):
         '''game is initialized with a title greater than 0 characters'''
         game = Game("Skribbl.io")
-        assert (hasattr(game, "title"))
+        assert (hasattr(game, "_title"))
 
         game_2 = Game("")
-        assert (not hasattr(game_2, "title"))
+        assert (not hasattr(game_2, "_title"))
 
     def test_title_setter(self):
         '''Cannot change the title of the game'''
@@ -91,6 +91,6 @@ class TestGame:
         Result(player, game, 5000)
         Result(player, game, 4999)
         Result(player, game, 5000)
-        Result(player, game, 5000)
+        Result(player, game, 4999)
 
         assert (game.average_score(player) == 4999.5)
