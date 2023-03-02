@@ -1,4 +1,4 @@
-# Object Relations Code Challenge - Restaurants
+# Object Relations Code Challenge - Coffee Shop
 
 For this assignment, we'll be working with a Yelp-style domain.
 
