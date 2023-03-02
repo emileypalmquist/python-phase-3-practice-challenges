@@ -1,13 +1,13 @@
-# Object Relations Code Challenge - Restaurants
+# Object Relations Code Challenge - Game Tracker
 
-For this assignment, we'll be working with a Yelp-style domain.
+For this assignment, we'll be working with a game tracking domain.
 
-We have three models: `Restaurant`, `Customer`, and `Review`.
+We have three models: `Game`, `Player`, and `Result`.
 
-For our purposes, a `Restaurant` has many `Reviews`, a `Customer` has many
-`Review`s, and a `Review` belongs to a `Customer` and to a `Restaurant`.
+For our purposes, a `Game` has many `Result`s, a `Player` has many
+`Result`s, and a `Result` belongs to a `Player` and to a `Game`.
 
-`Restaurant` - `Customer` is a many to many relationship.
+`Game` - `Player` is a many to many relationship.
 
 **Note**: You should draw your domain on paper or on a whiteboard _before you
 start coding_. Remember to identify a single source of truth for your data.
@@ -55,83 +55,101 @@ comments describing your progress.
 Write the following methods in the classes in the files provided. Feel free to
 build out any helper methods if needed.
 
-### Initializers, Readers, and Writers
+### Initializers and Properties
 
-For any invalid inputs raise an `Exception`. In your future work, you should
-raise specific types of exceptions for specific error cases. You can do that
-here and the tests will pass, but you don't have to this time around!
+#### Game
 
-#### Customer
+- `Game __init__(self, title)`
+  - `Game` is initialized with a title (string)
+  - Title **cannot be** changed after the `Game` is initialized
+- `Game property title`
+  - Returns the `Game`'s title
+  - Titles must be strings greater than 0 characters
 
-- `Customer __init__(self, first_name, last_name)`
-  - Customer should be initialized with a given name and family name, (i.e.,
-    first and last name,
-    like George Washington)"
-- `Customer property first_name()` and `Customer property last_name()`
-  - Return first and last name, respectively
-  - Names must be of type `str`
-  - Names must be between 1 and 25 characters, inclusive
+#### Player
 
-#### Restaurant
+- `Player __init__(self, username)`
+  - `Player` is initialized with a username (string)
+  - Usernames **can be** changed after the Player is initialized
+- `Player property username`
+  - Returns the Player's username
+  - Usernames must be strings between 2 and 16 characters,
+    inclusive
 
-- `Restaurant __init__(self, name)`
-  - Restaurants should be initialized with a name, as a string
-- `Restaurant property name()`
-  - Returns the restaurant's name
-  - Should not be able to change after the restaurant is created
+#### Result
 
-#### Review
+- `Result __init__(self, player, game, score)`
+  - `Result` is initialized with a `Player` instance, a `Game` instance, and a
+    score (number)
+- `Result property score`
+  - Returns the score for the `Result` instance
+  - Scores must be integers between 1 and 5000, inclusive
 
-- `Review __init__(self, customer, restaurant, rating)`
-  - Reviews should be initialized with a customer, restaurant, and a rating (a number)
-- `Review property rating()`
-  - Returns the rating for a restaurant
-  - Rating must be a number between 1 and 5, inclusive
+### Object Relationship Attributes and Properties
 
-### Object Relationships
+#### Result
 
-#### Review
+- `Result property player`
+  - Returns the player for the Result
+  - Players must be `Player` instances
+- `Result property game`
+  - Returns the game that was played
+  - Games must be `Game` instances
 
-- `Review customer`
-  - Returns the customer object for that review
-  - Must be of type `Customer`
-- `Review restaurant`
-  - Returns the restaurant object for that given review
-  - Must be of type `Restaurant`
+#### Player
 
-#### Restaurant
+- `Player results()`
+  - Returns a list of `Result` instances associated with the `Player` instance.
+- `Player games_played()`
+  - Returns a list of `Game` instances played by the `Player` instance.
 
-- `Restaurant reviews()`
-  - Returns a list of all reviews for that restaurant
-  - Reviews must be of type `Review`
-- `Restaurant customers()`
-  - Returns a **unique** list of all customers who have reviewed a particular restaurant.
-  - Customers must be of type `Customer`
+#### Game
 
-#### Customer
-
-- `Customer restaurants()`
-  - Returns a **unique** list of all restaurants a customer has reviewed
-- `Customer reviews()`
-  - Returns a list of all reviews a customer has written
+- `Game results()`
+  - Returns a list of all the `Result` instances for the `Game`.
+- `Game players()`
+  - Returns a list of all of the `Player` instances that played the `Game`.
 
 ### Aggregate and Association Methods
 
-#### Customer
+#### Player
 
-- `Customer num_reviews()`
-  - Returns the total number of reviews that a customer has authored
-- `Customer add_review(restaurant, rating)`
-  - given a **restaurant object** and a star rating (as an integer), creates a
-    new review and associates it with that customer and restaurant.
+- `Player played_game(game)`
+  - Returns `True` if the `Player` has played this `Game` (if there is a
+    `Result` instance that has this `Player` and `Game`), returns `False`
+    otherwise
+- `Player num_times_played(game)`
+  - Returns the number of times the `Player` instance has played (`Result` instance created) the `Game` instance
+- `Player add_result(game, score)`
+  - A `Game` instance and a score (number) are passed in as arguments
+  - This method should create a new `Result` instance with that `Player` instance, `Game` instance, and score
 
-#### Restaurant
+#### Game
 
-- `Restaurant average_star_rating()`
+- `Game average_score(player)`
+  - Returns the average of all the player's scores for the `Game` instance
+  - To average scores, add all result scores together for the player and divide by the total number
+    of results for the player.
 
-  - Returns the average star rating for a restaurant based on its reviews
-  - Reminder: you can calculate the average by adding up all the ratings and
-    dividing by the number of ratings
+#### Player
 
-- `Restaurant get_all_restaurants() classmethod`
-  - Returns a list of all restaurants
+- `Player classmethod highest_scored(game)`
+  - Returns the `Player` instance with the highest average game score.
+  - hint: will need a way to remember all `Player` objects
+  - hint: do you have a method to get the average score on a game for a particular player?
+
+### Bonus: For any invalid inputs raise an `Exception`.
+
+Uncomment the following lines in the test files:
+
+#### player_tests.py
+
+- lines 0 - 0
+
+#### game_tests.py
+
+- lines 34 - 38
+
+#### result_tests.py
+
+- lines 0 - 0

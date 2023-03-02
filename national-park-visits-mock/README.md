@@ -1,13 +1,13 @@
-# Object Relations Code Challenge - Coffee Shop
+# Object Relations Code Challenge - National Park Visits
 
-For this assignment, we'll be working with a Coffee shop-style domain.
+For this assignment, we'll be working with a national park planner-style domain.
 
-We have three models: `Coffee`, `Customer`, and `Order`.
+We have three models: `NationalPark`, `Visitor`, and `Trip`.
 
-For our purposes, a `Coffee` has many `Order`s, a `Customer` has many
-`Order`s, and a `Order` belongs to a `Customer` and to a `Coffee`.
+For our purposes, a `NationalPark` has many `Trip`s, a `Visitor` has many
+`Trip`s, and a `Trip` belongs to a `Visitor` and to a `NationalPark`.
 
-`Coffee` - `Customer` is a many to many relationship.
+`NationalPark` - `Visitor` is a many to many relationship.
 
 **Note**: You should draw your domain on paper or on a whiteboard _before you
 start coding_. Remember to identify a single source of truth for your data.
@@ -57,30 +57,29 @@ build out any helper methods if needed.
 
 ### Initializers and Properties
 
-#### Customer
+#### Visitor
 
-- `Customer __init__(self, name)`
-  - Customer should be initialized with a name
-- `Customer property name`
+- `Visitor __init__(self, name)`
+  - Visitor should be initialized with a name
+- `Visitor property name`
   - Return name
   - Names must be of type `str`
   - Names must be between 1 and 15 characters, inclusive
 
-#### Coffee
+#### NationalPark
 
-- `Coffee __init__(self, name)`
-  - Coffees should be initialized with a name, as a string
-- `Coffee property name`
-  - Returns the coffee's name
-  - Should not be able to change after the coffee is created
+- `NationalPark __init__(self, name)`
+  - NationalParks should be initialized with a name, as a string
+- `NationalPark property name`
+  - Returns the NationalPark's name
+  - Should not be able to change after the NationalPark is created
   - hint: hasattr()
-  - if you are using exceptions comment out the test on lines 20 - 24 in the coffee_test.py and uncomment lines 26 - 30
 
-#### Order
+#### Trip
 
-- `Order __init__(self, customer, coffee, price)`
-  - Orders should be initialized with a customer, coffee, and a price (a number)
-- `Order property price`
+- `Trip __init__(self, visitor, national_park, start_date, end_date)`
+  - Trips should be initialized with a visitor, national_park, start_date, end_date (a number)
+- `Trip property price`
   - Returns the price for a coffee
   - Price must be a number between 1 and 10, inclusive
 
